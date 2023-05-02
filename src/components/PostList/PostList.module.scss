@@ -1,0 +1,16 @@
+.postList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.postItem {
+  width: 10%;
+  padding: 10px;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
