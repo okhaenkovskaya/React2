@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import style from "./PostList.module.scss";
+import { BASE_URL_POST } from "../../data/constans"
 import PostItem from "./PostItem";
 
 type PostProps = {
@@ -16,7 +17,7 @@ const PostList = () => {
 
   const getPosts = () => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/posts`)
+      .get(BASE_URL_POST)
       .then((res) => {
         setPosts([...posts, ...res.data]);
       })

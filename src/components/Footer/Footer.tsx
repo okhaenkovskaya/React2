@@ -3,6 +3,8 @@ import style from "./Footer.module.scss";
 import { NavList, NavItem } from "../Nav";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className={style.footer}>
       <NavList classes={style.footerMenu}>
@@ -11,7 +13,7 @@ const Footer = () => {
         <NavItem to="/">Contact</NavItem>
       </NavList>
       <p className={style.copyright}>
-        Copyright ©2021 Prokopenko. All Rights Reserved.
+        Copyright {year} Prokopenko. All Rights Reserved.
       </p>
     </footer>
   );
