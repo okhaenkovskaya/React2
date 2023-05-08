@@ -3,22 +3,25 @@ import { Link } from "react-router-dom";
 import style from "./Button.module.scss";
 
 type Props = {
-  children: React.ReactNode | string;
+  children: JSX.Element | string;
   classes?: string;
   to?: string | undefined;
+  onClick?: () => void;
 } & typeof defaultProps;
 
 const defaultProps = {
   classes: style.button,
 };
 
-const Button = ({ children, classes, to }: Props) => {
+const Button = ({ children, classes, to, onClick }: Props) => {
   return to ? (
     <Link to={to} className={classes}>
       {children}
     </Link>
   ) : (
-    <button className={classes}>{children}</button>
+    <button onClick={onClick} className={classes}>
+      {children}
+    </button>
   );
 };
 

@@ -1,3 +1,4 @@
 import PostList from "./PostList";
+import PostItem from "./PostItem";
 
-export default PostList;
+export { PostList, PostItem };

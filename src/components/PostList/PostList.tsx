@@ -1,45 +1,12 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-
+import React from "react";
 import style from "./PostList.module.scss";
-import { BASE_URL_POST } from "../../data/constans"
-import PostItem from "./PostItem";
 
-type PostProps = {
-  id: number;
-  title: string;
-  body: string;
-  userID: number;
+type PostListProps = {
+  children: React.ReactNode;
 };
 
-const PostList = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
-
-  const getPosts = () => {
-    axios
-      .get(BASE_URL_POST)
-      .then((res) => {
-        setPosts([...posts, ...res.data]);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-  return (
-    <div className={style.postList}>
-      {posts.length > 0 &&
-        posts.map((postItem) => (
-          <PostItem
-            title={postItem.title}
-            body={postItem.body}
-            key={postItem.id}
-          />
-        ))}
-    </div>
-  );
+const PostList = ({ children }: PostListProps) => {
+  return <div className={style.postList}>{children}</div>;
 };
 
 export default PostList;

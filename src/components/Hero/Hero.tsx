@@ -1,9 +1,7 @@
-import { FC} from 'react';
-
 import style from "./Hero.module.scss";
 import Button from "../Button";
 
-const Hero: FC<PageContent.Page> = ({title, button, image}) => {
+const Hero = ({ title, button, image }: PageContent.Hero) => {
   return (
     <div
       className={style.hero}
