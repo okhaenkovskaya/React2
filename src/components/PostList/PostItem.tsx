@@ -1,14 +1,20 @@
 import style from "./PostList.module.scss";
+import { Link } from "react-router-dom";
 
 type Props = {
   title: string;
   body: string;
+  id: number;
 };
 
-const PostItem = ({ title, body }: Props) => {
+const PostItem = ({ title, body, id }: Props) => {
+  console.log(id, "id");
+
   return (
     <div className={style.postItem}>
-      <h2>{title}</h2>
+      <h2 className={style.postTitle}>
+        <Link to={id.toString()}>{title}</Link>
+      </h2>
       {body}
     </div>
   );

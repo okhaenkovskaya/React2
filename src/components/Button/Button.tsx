@@ -7,19 +7,20 @@ type Props = {
   classes?: string;
   to?: string | undefined;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
 } & typeof defaultProps;
 
 const defaultProps = {
   classes: style.button,
 };
 
-const Button = ({ children, classes, to, onClick }: Props) => {
+const Button = ({ children, classes, to, onClick, type }: Props) => {
   return to ? (
     <Link to={to} className={classes}>
       {children}
     </Link>
   ) : (
-    <button onClick={onClick} className={classes}>
+    <button onClick={onClick} type={type} className={classes}>
       {children}
     </button>
   );

@@ -1,15 +1,37 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+
+import { BASE_URL_POST } from "../../data/constans.ts";
+
+type PostProps = {
+  id: number;
+  title: string;
+  body: string;
+  userID: number;
+};
 
 const PostPage = () => {
   const params = useParams();
-  const location = useLocation();
+  const [post, setPost] = useState<PostProps>({});
 
-  console.log(params, "params");
-  console.log(location, "location");
+  const getPost = async () => {
+    try {
+      const { data } = await axios.get(`${BASE_URL_POST}/${params.id}`);
+      setPost(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
 
   return (
-    <div>
-      <h1>Post page ---- Lorem ipsum dolor sit amet.</h1>
+    <div className="container">
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
     </div>
   );
 };
