@@ -3,6 +3,7 @@ import style from "./Form.module.scss";
 type Props = {
   type?: string;
   name: string;
+  pattern?: string;
   placeholder?: string;
   value?: string;
   isRequired?: boolean;
@@ -13,6 +14,7 @@ const defaultProps = {
   type: "text",
   placeholder: "",
   value: "",
+  pattern: "",
   isRequired: false,
 };
 
@@ -21,12 +23,14 @@ const Input = ({
   name,
   placeholder,
   value,
+  pattern,
   isRequired,
   changeFunction,
 }: Props) => (
   <input
     className={style.input}
     type={type}
+    pattern={pattern}
     onChange={changeFunction}
     name={name}
     required={isRequired}

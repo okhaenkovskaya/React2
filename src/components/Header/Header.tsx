@@ -24,7 +24,7 @@ const navList = [
 
 interface headerProps {
   theme: string;
-  setTheme: any;
+  setTheme: (theme: string) => void;
 }
 
 const Header = ({ theme, setTheme }: headerProps) => {

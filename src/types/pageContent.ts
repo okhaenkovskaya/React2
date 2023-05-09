@@ -11,6 +11,11 @@ declare namespace PageContent {
     button: ButtonCTA;
   }
 
+  type Popup = {
+    title: string;
+    body: string;
+  };
+
   type ButtonCTA = {
     title: string;
     onClick?: void;

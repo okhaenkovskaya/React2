@@ -51,7 +51,12 @@ const HomePage = () => {
           ))}
       </PostList>
 
-      <CTA title={CTAData.title} body={CTAData.body} button={CTAData.button} />
+      <CTA
+        title={CTAData.title}
+        body={CTAData.body}
+        button={CTAData.button}
+        popup={CTAData.popup}
+      />
     </>
   );
 };
