@@ -45,6 +45,7 @@ const HomePage = () => {
             <PostItem
               title={postItem.title}
               body={postItem.body}
+              id={postItem.id}
               key={postItem.id}
             />
           ))}

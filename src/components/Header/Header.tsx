@@ -22,9 +22,20 @@ const navList = [
   },
 ];
 
-const Header = () => {
+interface headerProps {
+  theme: string;
+  setTheme: any;
+}
+
+const Header = ({ theme, setTheme }: headerProps) => {
   return (
-    <header className={style.header}>
+    <header
+      className={
+        theme === "dark"
+          ? `${style.header}  ${style.darkTheme}`
+          : `${style.header} ${style.pinkTheme}`
+      }
+    >
       <Logo to="/" classes={style.logo} />
 
       <NavList>
@@ -36,7 +47,8 @@ const Header = () => {
       </NavList>
 
       <div className={style.btnWrap}>
-        <Button>Button text</Button>
+        <Button onClick={() => setTheme("dark")}>Theme dark</Button>
+        <Button onClick={() => setTheme("pink")}>Theme Pink</Button>
         <Button to="/contact">Contact</Button>
       </div>
     </header>

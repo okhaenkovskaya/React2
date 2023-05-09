@@ -2,11 +2,21 @@ import style from "./Footer.module.scss";
 
 import { NavList, NavItem } from "../Nav";
 
-const Footer = () => {
+interface footerProps {
+  theme: string;
+}
+
+const Footer = ({ theme }: footerProps) => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={style.footer}>
+    <footer
+      className={
+        theme === "dark"
+          ? `${style.footer} ${style.darkTheme}`
+          : `${style.footer} ${style.pinkTheme}`
+      }
+    >
       <NavList classes={style.footerMenu}>
         <NavItem to="/about">About</NavItem>
         <NavItem to="/">Posts</NavItem>

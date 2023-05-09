@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
+import { ThemeContext } from "./Contexts.ts";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -8,14 +10,18 @@ interface PublicLayoutProps {
 }
 
 function PublicLayout({ children }: PublicLayoutProps) {
+  const [theme, setTheme] = useState<string>("dark");
+
   return (
-    <div className="page-wrapper">
-      <Header />
+    <ThemeContext.Provider value={theme}>
+      <div className="page-wrapper">
+        <Header setTheme={setTheme} theme={theme} />
 
-      {children ?? <Outlet />}
+        {children ?? <Outlet />}
 
-      <Footer />
-    </div>
+        <Footer theme={theme} />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
