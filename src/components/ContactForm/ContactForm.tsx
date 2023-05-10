@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import { Input, Textarea, Form, Button } from "../Form";
+import { Input, Textarea, Form, FormButton } from "../Form";
 
 type PropsData = {
   firstName: string;
@@ -10,7 +10,6 @@ type PropsData = {
 };
 
 const ContactForm = () => {
-  const formRef = useRef<HTMLFormElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const [data, setData] = useState<PropsData>({
@@ -31,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Form innerRef={formRef} submitFunction={handleSubmit}>
+    <Form submitFunction={handleSubmit}>
       <h1>Contact Form</h1>
       <Input
         isRequired
@@ -64,7 +63,7 @@ const ContactForm = () => {
         value={data.message}
       />
 
-      <Button innerRef={buttonRef}>Send</Button>
+      <FormButton innerRef={buttonRef}>Send</FormButton>
     </Form>
   );
 };

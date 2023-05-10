@@ -1,6 +1,6 @@
 import style from "./Popup.module.scss";
 import Button from "../Button";
-import { Form, Input } from "../Form";
+import { Form, FormButton, Input } from "../Form";
 import { useRef, useState } from "react";
 
 interface popupProps {
@@ -14,7 +14,6 @@ type PropsData = {
 };
 
 const Popup = ({ isShowPopup, setIsShowPopup }: popupProps) => {
-  const formRef = useRef<HTMLFormElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const [data, setData] = useState<PropsData>({
@@ -27,6 +26,7 @@ const Popup = ({ isShowPopup, setIsShowPopup }: popupProps) => {
 
     console.log(data, "data");
   };
+
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
@@ -35,12 +35,12 @@ const Popup = ({ isShowPopup, setIsShowPopup }: popupProps) => {
   return (
     <div className={style.popup}>
       <h1>Popup Form</h1>
-      <Form submitFunction={handleSubmit} innerRef={formRef}>
+      <Form submitFunction={handleSubmit}>
         <Input
           isRequired
           type="tel"
           name="phone"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          pattern="[0-9]{7}"
           value={data.phone}
           changeFunction={handleChange}
           placeholder="Phone"
@@ -53,6 +53,7 @@ const Popup = ({ isShowPopup, setIsShowPopup }: popupProps) => {
           changeFunction={handleChange}
           placeholder="Email"
         />
+        <FormButton innerRef={buttonRef}>Send</FormButton>
       </Form>
 
       <Button

@@ -1,21 +1,14 @@
 import style from "./Form.module.scss";
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-  submitFunction: void | any;
-  innerRef: any;
-} & typeof defaultProps;
+  submitFunction: (submitFunction: any) => void;
+}
 
-const defaultProps = {
-  innerRef: null,
-};
-
-const Form = ({ children, submitFunction, innerRef }: Props) => (
-  <form className={style.form} ref={innerRef} onSubmit={submitFunction}>
+const Form = ({ children, submitFunction }: Props) => (
+  <form className={style.form} onSubmit={submitFunction}>
     {children}
   </form>
 );
-
-Form.defaultProps = defaultProps;
 
 export default Form;

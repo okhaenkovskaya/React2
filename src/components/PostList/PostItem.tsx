@@ -5,7 +5,7 @@ import Button from "../Button";
 type Props = {
   title: string;
   body: string;
-  id: number;
+  id: number | string;
 };
 
 const PostItem = ({ title, body, id }: Props) => {

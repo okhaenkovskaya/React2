@@ -16,7 +16,7 @@ const defaultProps = {
   clickFunction: undefined,
 };
 
-const Button = ({
+const FormButton = ({
   children,
   innerRef,
   isDisabled,
@@ -34,6 +34,6 @@ const Button = ({
   </button>
 );
 
-Button.defaultProps = defaultProps;
+FormButton.defaultProps = defaultProps;
 
-export default Button;
+export default FormButton;

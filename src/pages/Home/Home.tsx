@@ -45,18 +45,13 @@ const HomePage = () => {
             <PostItem
               title={postItem.title}
               body={postItem.body}
-              id={postItem.id}
+              id={`/blog/${postItem.id}`}
               key={postItem.id}
             />
           ))}
       </PostList>
 
-      <CTA
-        title={CTAData.title}
-        body={CTAData.body}
-        button={CTAData.button}
-        popup={CTAData.popup}
-      />
+      <CTA title={CTAData.title} body={CTAData.body} button={CTAData.button} />
     </>
   );
 };
