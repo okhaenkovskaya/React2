@@ -5,12 +5,23 @@
 }
 
 .postItem {
-  width: 10%;
+  width: 20%;
   padding: 10px;
+}
+
+.postTitle {
+  margin: 0 0 15px;
   
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      color: blue;
+    }
   }
+}
+
+.postText {
+  margin: 0 0 15px;
 }

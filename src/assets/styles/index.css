@@ -352,6 +352,7 @@ template {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-top: 50px;
 }
 
 body {
@@ -360,4 +361,17 @@ body {
 
 *, *::before, *::after {
   box-sizing: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.mySwiper {
+  display: block;
+  width: 100%;
+  background: rebeccapurple;
 }
