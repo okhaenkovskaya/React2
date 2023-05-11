@@ -10,7 +10,12 @@ type Props = {
 const NavItem = ({ children, to }: Props) => {
   return (
     <li className={style.menuItem}>
-      <NavLink className={style.menuLink} to={to}>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? style.menuLinkActive : style.menuLink
+        }
+        to={to}
+      >
         {children}
       </NavLink>
     </li>
