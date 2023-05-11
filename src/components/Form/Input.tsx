@@ -3,7 +3,7 @@ import style from "./Form.module.scss";
 type Props = {
   type?: string;
   name: string;
-  pattern: string | undefined;
+  pattern?: string | undefined;
   placeholder?: string;
   value?: string;
   isRequired?: boolean;

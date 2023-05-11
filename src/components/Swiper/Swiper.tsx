@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import style from "./Swiper.module.scss";
+
 interface sliderDataProps {
   sliderData: Image[];
 }
@@ -34,7 +36,7 @@ const SwiperSection = ({ sliderData }: sliderDataProps) => {
       >
         {sliderData.map((item: Image) => (
           <SwiperSlide key={item.id}>
-            <img src={item.src} alt={item.alt} />
+            <img className={style.swiperImage} src={item.src} alt={item.alt} />
           </SwiperSlide>
         ))}
       </Swiper>
